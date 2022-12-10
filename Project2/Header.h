@@ -27,8 +27,8 @@ public:
 	double P = d12 + d23 + d13;  // Периметр 
 	double S = sqrt((P / 2) * ((P / 2) - d12) * ((P / 2) - d23) * ((P / 2) - d13)); // АПлощадь
 	double Destiny = mass / S; // Плотность
-	double x_CenterOfMass = ((x1 + x2 + x3) / 3); //Центр масс треугольника по х
-	double y_CenterOfMass = ((y1 + y2 + y3) / 3); //Центр масс треугольника по у
+	float x_CenterOfMass = ((x1 + x2 + x3) / 3); //Центр масс треугольника по х
+	float y_CenterOfMass = ((y1 + y2 + y3) / 3); //Центр масс треугольника по у
 	double height = 2 * S / d12; //Длинна высоты опущенной на сторону 1,2
 	double mInertia = d12 * pow(height, 3) / 12; //Момент инерции треугольника
 	void cons()
@@ -45,6 +45,8 @@ public:
 		mInertia = d12 * pow(height, 3) / 12; //Момент инерции треугольника
 
 	}
+	float Get_Center_Tr_x() { return x_CenterOfMass; }
+	float Get_Center_Tr_y() { return y_CenterOfMass; }
 };
 class Kit_Triangle
 {
@@ -63,14 +65,8 @@ public:
 	std::vector<GLfloat > Massive_Of_Dest{};
 
 
-	Kit_Triangle(Triangle tr) //Контруктор 
-	{
-	
-	}
-	~Kit_Triangle()
-	{
-		Massive_Of_TRiangle.clear();
-	}
+	Kit_Triangle(Triangle tr) {};
+	~Kit_Triangle(){Massive_Of_TRiangle.clear();}
 
 
 	void ChangeMaxDesteny(std::vector<Triangle> Massive_Of_TRiangle, double& MaxDest)
@@ -86,8 +82,8 @@ public:
 			Massive_Of_TRiangle.push_back(tr); // Добавляем треугольник в конец массива
 			SOfAllTriangles += tr.S; //Площадь всей фигуры + площадь треугольника
 			AverageDesttiny = Kit_Mass / SOfAllTriangles; //Плотность общ масса/Общая площадь
-			CenterMassKit_x += (tr.x_CenterOfMass * tr.mass + CenterMassKit_x * Kit_Mass) / (Kit_Mass + tr.mass); //По формуле нахождения ц.Масс
-			CenterMassKit_y += (tr.y_CenterOfMass * tr.mass + CenterMassKit_y * Kit_Mass) / (Kit_Mass + tr.mass);
+			CenterMassKit_x = (tr.x_CenterOfMass * tr.mass + CenterMassKit_x * Kit_Mass) / (Kit_Mass + tr.mass); //По формуле нахождения ц.Масс
+			CenterMassKit_y = (tr.y_CenterOfMass * tr.mass + CenterMassKit_y * Kit_Mass) / (Kit_Mass + tr.mass);
 			Kit_Mass += tr.mass;
 			mInertia += tr.mInertia + tr.mass * (sqrt((tr.x_CenterOfMass - CenterMassKit_x) * (tr.x_CenterOfMass - CenterMassKit_x)
 				- (tr.y_CenterOfMass - CenterMassKit_y) * (tr.y_CenterOfMass - CenterMassKit_y))); //Находим общий момент по ф-ле Гюйгейна-Штейнера
@@ -120,7 +116,7 @@ public:
 	  void CheckTriWinding(TriPoint& p1, TriPoint& p2, TriPoint& p3, bool allowReversed)
 	  {
 		  double detTri = Det2D(p1, p2, p3);//ПРоверка на очередность ввода координат
-		  if (detTri < 0.0)
+		  if (detTri <= 0.0)
 		  {
 			  if (allowReversed)
 			  {
@@ -141,31 +137,27 @@ public:
 		  TriPoint* t2,
 		  double eps = 0.3, bool allowReversed = false, bool onBoundary = true)
 	  {
-		  //Trangles must be expressed anti-clockwise
 		  CheckTriWinding(t1[0], t1[1], t1[2], allowReversed);
 		  CheckTriWinding(t2[0], t2[1], t2[2], allowReversed);
 
 
-		  //For edge E of trangle 1,
 		  for (int i = 0; i < 3; i++)
 		  {
 			  int j = (i + 1) % 3;
 
-			  //Check all points of trangle 2 lay on the external side of the edge E. If
-			  //they do, the triangles do not collide.
+			
 			  if (BoundaryCollideChk(t1[i], t1[j], t2[0], eps) &&
 				  BoundaryCollideChk(t1[i], t1[j], t2[1], eps) &&
 				  BoundaryCollideChk(t1[i], t1[j], t2[2], eps))
 				  return false;
 		  }
 
-		  //For edge E of trangle 2,
+		 
 		  for (int i = 0; i < 3; i++)
 		  {
 			  int j = (i + 1) % 3;
 
-			  //Check all points of trangle 1 lay on the external side of the edge E. If
-			  //they do, the triangles do not collide.
+			  
 			  if (BoundaryCollideChk(t2[i], t2[j], t1[0], eps) &&
 				  BoundaryCollideChk(t2[i], t2[j], t1[1], eps) &&
 				  BoundaryCollideChk(t2[i], t2[j], t1[2], eps))
@@ -213,6 +205,8 @@ public:
 		}
 	  double Get_mInertiea() { return  mInertia; }
 	  double Get_MaxDest() { return MaxDesteny; }
+	  double Get_Center_Figure_x() { return CenterMassKit_x;}
+	  double Get_Center_Figure_y() { return CenterMassKit_y; }
 };
 
 

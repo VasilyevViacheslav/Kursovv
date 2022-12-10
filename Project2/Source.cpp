@@ -32,7 +32,7 @@ int main(void)
                 ++j;
                
             }
-            if (j != 7) throw std::runtime_error("Не верно введены координаты и масса");
+            if ((j != 7)||(Tr_Info_mass[6]<0)) throw std::runtime_error("Не верно введены координаты и масса");
             j = 0;
            
             First[0] = { Tr_Info_mass[0],Tr_Info_mass[1],Tr_Info_mass[2],
@@ -42,21 +42,6 @@ int main(void)
     }
     std::vector<float> Coords = Obs.Get_Coords(Obs.Massive_Of_TRiangle);
 
-
-
-  /*  while (true)
-    {
-        First.push_back(None);
-        std::cout << "If want stop ->mass = 0, Trangles must be expressed anti-clockwise ";
-        std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> mass;
-        if (mass == 0) break;
-        First[i] = { x1,y1,x2,y2,x3,y3,mass};
-        Obs.add_Triangle(First[i]);
-        ++i;
-    }
-    std::cout << Obs.CenterMassKit_x << "   " << Obs.CenterMassKit_y;
-    std::vector<float> Coords = Obs.Get_Coords(Obs.Massive_Of_TRiangle);
-    */
     if (!glfwInit())
         return -1;
 
@@ -76,7 +61,7 @@ int main(void)
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
+       
         glBegin(GL_TRIANGLES);
         GLfloat j = 0;
         float max = Obs.Get_Max_Cord();
@@ -84,12 +69,38 @@ int main(void)
         for (int i = 0; i < Coords.size(); i += 6) 
         {
                 glColor3f(Obs.Massive_Of_Dest[j]/Obs.MaxDesteny, 0, 0);
-                glVertex2d((Coords[i]/max)-0.02, (Coords[i + 1]/max) - 0.02);
-                glVertex2d(Coords[i + 2] / max - 0.02, (Coords[i + 3] / max) - 0.02);
-                glVertex2d(Coords[i + 4] / max - 0.02, (Coords[i + 5] / max) - 0.02);
+                glVertex2d((Coords[i]/max), (Coords[i + 1]/max));
+                glVertex2d(Coords[i + 2] / max , (Coords[i + 3] / max) );
+                glVertex2d(Coords[i + 4] / max , (Coords[i + 5] / max) );
                 ++j;
         }
+
+
         glEnd();
+        glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+        glBegin(GL_TRIANGLES);
+
+        float x, y;
+
+        for (size_t i = 0; i < Obs.Massive_Of_TRiangle.size(); i++)
+        {
+            x = Obs.Massive_Of_TRiangle[i].Get_Center_Tr_x() / max;
+            y = Obs.Massive_Of_TRiangle[i].Get_Center_Tr_y() / max;
+            glVertex3f(x, y, 0.0f);
+            glVertex3f(x, y, 0.0f);
+            glVertex3f(x, y, 0.0f);
+        }
+        
+
+        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_x() / max, 0.0f);
+        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_x() / max, 0.0f);
+        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_x() / max, 0.0f);
+        glEnd();
+
+
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
