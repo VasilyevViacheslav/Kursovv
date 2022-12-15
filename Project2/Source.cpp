@@ -10,6 +10,7 @@ int main(void)
     GLFWwindow* window;
     std::vector<Triangle> First;
     Triangle None{ 0,0,0,0,0,0,0 };
+    
     First.push_back(None);
     Kit_Triangle Obs(None);
     float Tr_Info_mass[7];
@@ -81,7 +82,7 @@ int main(void)
         glBegin(GL_TRIANGLES);
 
         float x, y;
-
+        glColor3f(1, 1, 1);
         for (size_t i = 0; i < Obs.Massive_Of_TRiangle.size(); i++)
         {
             x = Obs.Massive_Of_TRiangle[i].Get_Center_Tr_x() / max;
@@ -92,9 +93,9 @@ int main(void)
         }
         
 
-        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_x() / max, 0.0f);
-        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_x() / max, 0.0f);
-        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_x() / max, 0.0f);
+        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_y() / max, 0.0f);
+        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_y() / max, 0.0f);
+        glVertex3f(Obs.Get_Center_Figure_x() / max, Obs.Get_Center_Figure_y() / max, 0.0f);
         glEnd();
 
 

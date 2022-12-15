@@ -1,50 +1,50 @@
 ﻿  Source.cpp
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(30,41): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(31,41): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(42,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(43,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(91,32): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(30,41): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(31,41): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(42,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(43,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(91,32): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(195,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(195,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(196,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(196,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(197,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(197,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(198,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(198,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(199,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(199,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\GBPLTW\Project2\Header.h(200,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(200,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(69,27): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(71,47): warning C4244: аргумент: преобразование "GLfloat" в "const unsigned int", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(71,49): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(102,79): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(102,46): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(103,79): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(103,46): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(104,79): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-C:\Users\laris\source\repos\GBPLTW\Project2\Source.cpp(104,46): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-  Project2.vcxproj -> C:\Users\laris\source\repos\GBPLTW\Debug\Project2.exe
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(70,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(72,47): warning C4244: аргумент: преобразование "GLfloat" в "const unsigned int", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(72,49): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(96,79): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(96,46): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(97,79): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(97,46): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(98,79): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Source.cpp(98,46): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+  Project2.vcxproj -> C:\Users\laris\source\repos\1\Kursovv\Debug\Project2.exe
