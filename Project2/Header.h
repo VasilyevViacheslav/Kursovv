@@ -43,11 +43,11 @@ public:
 		Destiny = mass / S; // Плотность
 		x_CenterOfMass = ((x1 + x2 + x3) / 3); //Центр масс треугольника по х
 		y_CenterOfMass = ((y1 + y2 + y3) / 3); //Центр масс треугольника по у
-		if ((y2 - y1) == 0) Koefd12 = 0;
-		else Koefd12 = ((x2 - x1) / (y2 - y1));
-		C = (x1 + x2) / 2;
+		if ((x2 - x1) == 0) Koefd12 = 0;
+		else Koefd12 = ((y2 - y1)/ (x2 - x1));
+		C = (x1*y2 - x2*y1);
 		// Koef * x - x1/Koef
-		heightm = abs(Koefd12 * x_CenterOfMass - y_CenterOfMass - C) / abs(sqrt(Koefd12 * Koefd12 + 1));
+		heightm = abs(Koefd12 * x_CenterOfMass + y_CenterOfMass + C) / abs(sqrt(Koefd12 * Koefd12 + 1));
 		mInertia = (mass / 6) * (d12 * d12 - d12 * d23 + d23 * d23 + 3*heightm*heightm);
 	}
 	float Get_Center_Tr_x() { return x_CenterOfMass; }
@@ -57,7 +57,7 @@ class Kit_Triangle
 {
 public:
 	double MaxDesteny = 0;
-	double mInertia = 0; //Момент инерции всего тела
+	double mInertia1 = 0; //Момент инерции всего тела
 	double Kit_Mass = 0; // Масса фигуры
 	double SOfAllTriangles = 0; // Площадь всей фигуры
 	double AverageDesttiny = 0; // Плотность всей фигуры
@@ -86,13 +86,12 @@ public:
 		if (!Check(Massive_Of_TRiangle, tr)) {
 			tr.cons();
 			Massive_Of_TRiangle.push_back(tr); // Добавляем треугольник в конец массива
-			SOfAllTriangles += tr.S; //Площадь всей фигуры + площадь треугольника
+ 
 			AverageDesttiny = Kit_Mass / SOfAllTriangles; //Плотность общ масса/Общая площадь
 			CenterMassKit_x = (tr.x_CenterOfMass * tr.mass + CenterMassKit_x * Kit_Mass) / (Kit_Mass + tr.mass); //По формуле нахождения ц.Масс
 			CenterMassKit_y = (tr.y_CenterOfMass * tr.mass + CenterMassKit_y * Kit_Mass) / (Kit_Mass + tr.mass);
 			Kit_Mass += tr.mass;
-			mInertia += tr.mInertia + tr.mass * (sqrt((tr.x_CenterOfMass - CenterMassKit_x) * (tr.x_CenterOfMass - CenterMassKit_x)
-				- (tr.y_CenterOfMass - CenterMassKit_y) * (tr.y_CenterOfMass - CenterMassKit_y))); //Находим общий момент по ф-ле Гюйгейна-Штейнера
+			SOfAllTriangles += tr.S;//Площадь всей фигуры + площадь треугольника
 			ChangeMaxDesteny(Massive_Of_TRiangle, MaxDesteny);
 			Massive_Of_Dest.push_back(tr.Destiny);
 		}
@@ -209,7 +208,20 @@ public:
 			return Massive_Coords;
 
 		}
-	  double Get_mInertiea() { return  mInertia; }
+	  double Find_mInertiea(std::vector<Triangle> Massive_Of_TRiangle)
+	  {
+		  double mInertia1=0;
+		  std::vector<double> Mi;
+		  for (size_t i = 0; i < Massive_Of_TRiangle.size(); ++i)
+		  {
+			  Mi.push_back(Massive_Of_TRiangle[i].mInertia + Massive_Of_TRiangle[i].mass *
+				  (sqrt((Massive_Of_TRiangle[i].x_CenterOfMass - CenterMassKit_x) * (Massive_Of_TRiangle[i].x_CenterOfMass - CenterMassKit_x)
+					  + (Massive_Of_TRiangle[i].y_CenterOfMass - CenterMassKit_y) * (Massive_Of_TRiangle[i].y_CenterOfMass - CenterMassKit_y)))); 
+			  std::cout <<std::endl << Mi[i];
+		  }
+		  for (size_t i = 0; i < Mi.size(); ++i) { mInertia1 += Mi[i]; }
+		  return  mInertia1; 
+	  }
 	  double Get_MaxDest() { return MaxDesteny; }
 	  double Get_Center_Figure_x() { return CenterMassKit_x;}
 	  double Get_Center_Figure_y() { return CenterMassKit_y; }

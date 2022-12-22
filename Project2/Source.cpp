@@ -33,16 +33,17 @@ int main(void)
                 ++j;
                
             }
-            if ((j != 7)||(Tr_Info_mass[6]<0)) throw std::runtime_error("Не верно введены координаты и масса");
+            if ((j != 7) || (Tr_Info_mass[6] < 0)) { throw std::runtime_error("Не верно введены координаты и масса"); }
             j = 0;
            
             First[0] = { Tr_Info_mass[0],Tr_Info_mass[1],Tr_Info_mass[2],
                          Tr_Info_mass[3],Tr_Info_mass[4],Tr_Info_mass[5],Tr_Info_mass[6] };
             Obs.add_Triangle(First[0]);
         }
+        
     }
+    Obs.Find_mInertiea(Obs.Massive_Of_TRiangle);
     std::vector<float> Coords = Obs.Get_Coords(Obs.Massive_Of_TRiangle);
-    std::cout << Obs.Get_mInertiea();
     if (!glfwInit())
         return -1;
 
