@@ -1,39 +1,39 @@
 ﻿  Source.cpp
 C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(30,41): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
 C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(31,41): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(42,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(43,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(91,32): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(44,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(45,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(97,32): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(195,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(201,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(196,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(202,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(197,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(203,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(198,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(204,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(199,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(205,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat
           ]
-C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(200,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\laris\source\repos\1\Kursovv\Project2\Header.h(206,43): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
           with
           [
               _Ty=GLfloat

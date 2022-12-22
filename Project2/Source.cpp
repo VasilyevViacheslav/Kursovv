@@ -42,7 +42,7 @@ int main(void)
         }
     }
     std::vector<float> Coords = Obs.Get_Coords(Obs.Massive_Of_TRiangle);
-
+    std::cout << Obs.Get_mInertiea();
     if (!glfwInit())
         return -1;
 
@@ -69,7 +69,7 @@ int main(void)
 
         for (int i = 0; i < Coords.size(); i += 6) 
         {
-                glColor3f(Obs.Massive_Of_Dest[j]/Obs.MaxDesteny, 0, 0);
+                glColor3f(Obs.Massive_Of_Dest[j]/Obs.MaxDesteny, 0,0 );
                 glVertex2d((Coords[i]/max), (Coords[i + 1]/max));
                 glVertex2d(Coords[i + 2] / max , (Coords[i + 3] / max) );
                 glVertex2d(Coords[i + 4] / max , (Coords[i + 5] / max) );

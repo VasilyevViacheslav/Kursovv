@@ -29,8 +29,10 @@ public:
 	double Destiny = mass / S; // Плотность
 	float x_CenterOfMass = ((x1 + x2 + x3) / 3); //Центр масс треугольника по х
 	float y_CenterOfMass = ((y1 + y2 + y3) / 3); //Центр масс треугольника по у
-	double height = 2 * S / d12; //Длинна высоты опущенной на сторону 1,2
-	double mInertia = d12 * pow(height, 3) / 12; //Момент инерции треугольника
+	double Koefd12;
+	double heightm;
+	double C;
+	double mInertia; //Момент инерции треугольника
 	void cons()
 	{
 		d12 = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)); // Длинаа стороны с вершинами 1 и 2
@@ -41,9 +43,12 @@ public:
 		Destiny = mass / S; // Плотность
 		x_CenterOfMass = ((x1 + x2 + x3) / 3); //Центр масс треугольника по х
 		y_CenterOfMass = ((y1 + y2 + y3) / 3); //Центр масс треугольника по у
-		height = 2 * S / d12; //Длинна высоты опущенной на сторону 1,2
-		mInertia = d12 * pow(height, 3) / 12; //Момент инерции треугольника
-
+		if ((y2 - y1) == 0) Koefd12 = 0;
+		else Koefd12 = ((x2 - x1) / (y2 - y1));
+		C = (x1 + x2) / 2;
+		// Koef * x - x1/Koef
+		heightm = abs(Koefd12 * x_CenterOfMass - y_CenterOfMass - C) / abs(sqrt(Koefd12 * Koefd12 + 1));
+		mInertia = (mass / 6) * (d12 * d12 - d12 * d23 + d23 * d23 + 3*heightm*heightm);
 	}
 	float Get_Center_Tr_x() { return x_CenterOfMass; }
 	float Get_Center_Tr_y() { return y_CenterOfMass; }
@@ -79,6 +84,7 @@ public:
 	void add_Triangle(Triangle tr) // Добавление треугольника
 	{
 		if (!Check(Massive_Of_TRiangle, tr)) {
+			tr.cons();
 			Massive_Of_TRiangle.push_back(tr); // Добавляем треугольник в конец массива
 			SOfAllTriangles += tr.S; //Площадь всей фигуры + площадь треугольника
 			AverageDesttiny = Kit_Mass / SOfAllTriangles; //Плотность общ масса/Общая площадь
